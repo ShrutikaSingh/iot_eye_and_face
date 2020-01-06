@@ -1,0 +1,11 @@
+How to make your own Haar Cascade for Image and Video Classification
+
+Steps:
+1.Collect "Negative" or "background" images.
+--make sure your object will not present on them
+2.Collect or create "positive" images.
+--thousands of images of the object.
+3. Create a positive vector file by stitching together all positive OR negative_images_link
+-- done with open cv commands
+4.Train Cascade
+--done with opencv cmd

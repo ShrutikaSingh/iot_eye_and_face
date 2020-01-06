@@ -1,0 +1,21 @@
+Algorithms
+
+
+
+
+Now, how do we actually about this process?
+
+So when you want to build a Haar Cascade, you need "positive" images, and "negative" images.
+The "positive" images are images that contain the object you want to find. This can either be images that just mainly have the object,
+or it can be images that contain the object, and you specify the ROI (region of interest) where the object is. With these positives,
+ we build a vector file that is basically all of these positives put together.
+ One nice thing about the positives is that you can actually just have one image of the object you wish to detect,
+ and then have a few thousand negative images. Yes, a few thousand. The negative images can be anything,
+  except they cannot contain your object.
+
+From here, with your single positive image, you can use the opencv_createsamples command to actually create a bunch of positive examples,
+ using your negative images. Your positive image will be superimposed on these negatives, and it will be angled and all sorts of things.
+ It actually can work pretty well, especially if you are really just looking for one specific object.
+ If you are looking to identify all screwdrivers, however, you will want to have thousands of unique images of screwdrivers,
+ rather than using the opencv_createsamples to generate samples for you.
+ Here we will keep it simple and just use one positive image, and then create a bunch of samples with our negatives.
